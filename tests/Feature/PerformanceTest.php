@@ -37,8 +37,8 @@ class PerformanceTest extends TestCase
 
     public function test_post_show_with_relationships_performance()
     {
-        // Arrange
-        $post = Post::factory()->create();
+        // Arrange - Published post oluştur (herkes erişebilir)
+        $post = Post::factory()->create(['status' => 'published']);
         $post->comments()->createMany(
             Comment::factory()->count(10)->make()->toArray()
         );
