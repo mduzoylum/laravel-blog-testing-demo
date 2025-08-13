@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 
 class CommentTest extends TestCase
