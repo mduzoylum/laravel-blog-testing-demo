@@ -13,7 +13,7 @@ class PostPolicy
      */
     public function viewAny(User $user): bool
     {
-        return true; // Herkes published post'ları görebilir
+        return true;
     }
 
     /**

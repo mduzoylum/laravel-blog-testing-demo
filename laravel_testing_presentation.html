@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
             min-height: 100vh;
             color: #333;
         }
@@ -110,12 +110,12 @@
         }
 
         .benefit-card {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
+            background: linear-gradient(45deg, #e0f7fa, #f3e5f5);
+            color: #333;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
             transition: transform 0.3s ease;
         }
 
@@ -232,7 +232,7 @@
             <span id="current-slide">1</span> / <span id="total-slides">12</span>
         </div>
 
-        <!-- Slide 1: Başlık -->
+
         <div class="slide active title-slide">
             <div class="laravel-logo">L</div>
             <h1>Laravel Testing</h1>
@@ -240,7 +240,7 @@
             <p style="color: #95a5a6; font-size: 1.2em;">Neden Test Yazmalıyız? Nasıl Test Yazarız?</p>
         </div>
 
-        <!-- Slide 2: İçindekiler -->
+
         <div class="slide">
             <h1>İçindekiler</h1>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
@@ -264,7 +264,7 @@
             </div>
         </div>
 
-        <!-- Slide 3: Neden Test Yazmalıyız? -->
+
         <div class="slide">
             <h1>🤔 Neden Test Yazmalıyız?</h1>
             
@@ -293,7 +293,7 @@
             </div>
         </div>
 
-        <!-- Slide 4: İş Süreçlerine Etkisi -->
+
         <div class="slide">
             <h1>💼 İş Süreçlerine Etkisi</h1>
             
@@ -326,10 +326,11 @@
                 <h3>📊 ROI (Return of Investment)</h3>
                 <p>1 saat test yazma = 10 saat debug tasarrufu</p>
                 <p>1 günlük test altyapısı = 1 aylık güvenli geliştirme</p>
+                <p style="margin-top: 15px; font-size: 0.9em; color: #666;">📚 <a href="https://www.browserstack.com/guide/calculate-test-automation-roi" target="_blank" style="color: #007bff; text-decoration: none;">Calculating Test Automation ROI: A Guide</a> - BrowserStack</p>
             </div>
         </div>
 
-        <!-- Slide 5: Laravel'in Test Avantajları -->
+
         <div class="slide">
             <h1>🎨 Laravel'de Testing Neden Kolay?</h1>
             
@@ -378,37 +379,82 @@ public function test_user_can_create_post()
 }</div>
         </div>
 
-        <!-- Slide 6: Test Türleri -->
+
         <div class="slide">
             <h1>🔍 Laravel'de Test Türleri</h1>
             
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
-                <div class="benefit-card" style="background: linear-gradient(45deg, #2ecc71, #27ae60);">
+                <div class="benefit-card" style="background: linear-gradient(45deg, #e8f5e8, #f0f8f0);">
                     <h3>Unit Tests</h3>
                     <p>Tek bir sınıf/metodu test eder</p>
                     <p><strong>Hızlı • İzole • Küçük</strong></p>
                 </div>
-                <div class="benefit-card" style="background: linear-gradient(45deg, #f39c12, #e67e22);">
+                <div class="benefit-card" style="background: linear-gradient(45deg, #fff3e0, #fef7e0);">
                     <h3>Feature Tests</h3>
                     <p>HTTP istekleri ve yanıtları test eder</p>
                     <p><strong>Gerçekçi • Kapsamlı</strong></p>
                 </div>
-                <div class="benefit-card" style="background: linear-gradient(45deg, #9b59b6, #8e44ad);">
-                    <h3>Integration Tests</h3>
-                    <p>Birden fazla bileşenin etkileşimi</p>
-                    <p><strong>Sistem • End-to-End</strong></p>
-                </div>
+                                  <div class="benefit-card" style="background: linear-gradient(45deg, #f3e5f5, #f8f0f8);">
+                      <h3>End-to-End Tests</h3>
+                      <p>Birden fazla bileşenin etkileşimi</p>
+                      <p><strong>Sistem</strong></p>
+                  </div>
             </div>
 
             <h3 style="margin-top: 40px;">🏗️ Test Piramidi</h3>
+            
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #28a745;">
+                <h4 style="color: #28a745; margin-top: 0;">📚 Test Piramidi Nedir?</h4>
+                <p><strong>Test Piramidi</strong>, yazılım testlerini farklı granülaritede gruplandırmak için kullanılan bir metafordur. Mike Cohn tarafından "Succeeding with Agile" kitabında ortaya atılmıştır.</p>
+                <p style="margin-bottom: 0;"><strong>Ana Prensipler:</strong></p>
+                <ul style="margin-top: 5px;">
+                    <li><strong>Farklı granülaritede testler yazın</strong></li>
+                    <li><strong>Yüksek seviyeye çıktıkça daha az test yazın</strong></li>
+                    <li><strong>Piramit şeklini koruyun</strong> - test ice-cream cone olmasın!</li>
+                </ul>
+            </div>
+
             <div style="text-align: center; margin-top: 20px;">
-                <div style="background: #9b59b6; color: white; padding: 10px; margin: 5px auto; width: 200px;">E2E Tests (Az)</div>
-                <div style="background: #f39c12; color: white; padding: 10px; margin: 5px auto; width: 300px;">Feature Tests (Orta)</div>
-                <div style="background: #2ecc71; color: white; padding: 10px; margin: 5px auto; width: 400px;">Unit Tests (Çok)</div>
+                <div style="background: #f3e5f5; color: #333; padding: 10px; margin: 5px auto; width: 200px; border-radius: 5px;">
+                    <strong>E2E Tests (Az)</strong><br>
+                    <small>End-to-End • Sistem • Kapsamlı</small>
+                </div>
+                <div style="background: #fff3e0; color: #333; padding: 10px; margin: 5px auto; width: 300px; border-radius: 5px;">
+                    <strong>Feature Tests (Orta)</strong><br>
+                    <small>Integration • API • HTTP</small>
+                </div>
+                <div style="background: #e8f5e8; color: #333; padding: 10px; margin: 5px auto; width: 400px; border-radius: 5px;">
+                    <strong>Unit Tests (Çok)</strong><br>
+                    <small>Hızlı • İzole • Küçük</small>
+                </div>
+            </div>
+
+            <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #2196f3;">
+                <h4 style="color: #2196f3; margin-top: 0;">🎯 Test Piramidi Avantajları</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <p><strong>⚡ Hız:</strong> Unit testler saniyelerde çalışır</p>
+                        <p><strong>🔍 İzolasyon:</strong> Her test bağımsız çalışır</p>
+                        <p><strong>💰 Maliyet:</strong> Erken bug detection</p>
+                    </div>
+                    <div>
+                        <p><strong>🔄 Feedback:</strong> Hızlı geri bildirim</p>
+                        <p><strong>📊 Coverage:</strong> Kapsamlı test coverage</p>
+                        <p><strong>🚀 Confidence:</strong> Güvenli deployment</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: #fff3e0; padding: 15px; border-radius: 8px; margin-top: 20px; text-align: center; border-left: 4px solid #ff9800;">
+                <p style="margin: 0; font-size: 0.9em; color: #666;">
+                    📚 <strong>Referans:</strong> 
+                    <a href="https://martinfowler.com/articles/practical-test-pyramid.html" target="_blank" style="color: #ff9800; text-decoration: none;">Martin Fowler - The Practical Test Pyramid</a> • 
+                    <a href="https://circleci.com/blog/testing-pyramid/" target="_blank" style="color: #ff9800; text-decoration: none;">CircleCI - Testing Pyramid</a>
+                </p>
             </div>
         </div>
 
-        <!-- Slide 7: Laravel Test Araçları -->
+
         <div class="slide">
             <h1>🛠️ Laravel Test Araçları</h1>
             
@@ -454,7 +500,7 @@ $this->assertDatabaseCount('posts', 5);</div>
             </div>
         </div>
 
-        <!-- Slide 8: Best Practices -->
+
         <div class="slide">
             <h1>✨ Best Practices</h1>
             
@@ -498,7 +544,7 @@ $this->assertDatabaseCount('posts', 5);</div>
             </div>
         </div>
 
-        <!-- Slide 9: Test Örnekleri - Model -->
+
         <div class="slide">
             <h1>📝 Pratik Örnekler - Model Testing</h1>
             
@@ -536,7 +582,7 @@ $this->assertDatabaseCount('posts', 5);</div>
             </div>
         </div>
 
-        <!-- Slide 10: Test Örnekleri - HTTP -->
+
         <div class="slide">
             <h1>🌐 Pratik Örnekler - HTTP Testing</h1>
             
@@ -576,7 +622,7 @@ $this->assertDatabaseCount('posts', 5);</div>
             </div>
         </div>
 
-        <!-- Slide 11: Demo Projesi Tanıtımı -->
+
         <div class="slide">
             <h1>🎬 Canlı Demo</h1>
             
@@ -616,7 +662,7 @@ $this->assertDatabaseCount('posts', 5);</div>
             </div>
         </div>
 
-        <!-- Slide 12: Özet ve Sonuç -->
+
         <div class="slide">
             <h1>🎯 Özet ve Sonuç</h1>
             
@@ -634,13 +680,20 @@ $this->assertDatabaseCount('posts', 5);</div>
             <div class="highlight" style="text-align: center; margin: 40px 0;">
                 <h3>🚀 Bugünden İtibaren Başlayın!</h3>
                 <p style="font-size: 1.2em;">Her yeni feature için önce test yazın</p>
-                <p style="font-size: 1.2em;">Mevcut kodlar için test coverage'ı artırın</p>
+                <p style="font-size: 1.2em;">Mevcut kodlar için de test yazımını artırın</p>
                 <p style="font-size: 1.2em;">Takım içinde test kültürü oluşturun</p>
             </div>
 
             <div style="text-align: center; margin-top: 40px;">
                 <h2 style="color: #2c3e50;">Sorular? 🤔</h2>
                 <p style="font-size: 1.3em; color: #7f8c8d;">Şimdi canlı demo zamanı! 🎬</p>
+            </div>
+
+            <div style="background: #e8f5e8; padding: 20px; border-radius: 10px; margin-top: 30px; text-align: center;">
+                <h3>📚 Daha Fazla Öğrenin</h3>
+                <p><strong>Test otomasyonu ROI'si ve best practices:</strong></p>
+                <p>🔗 <a href="https://www.browserstack.com/guide/calculate-test-automation-roi" target="_blank" style="color: #27ae60; text-decoration: none; font-weight: bold;">Calculating Test Automation ROI: A Guide</a></p>
+                <p style="font-size: 0.9em; color: #666; margin-top: 10px;">BrowserStack'ten kapsamlı test otomasyonu rehberi</p>
             </div>
         </div>
     </div>
