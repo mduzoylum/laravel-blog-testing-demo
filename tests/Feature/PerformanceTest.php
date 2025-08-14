@@ -5,13 +5,13 @@ namespace Tests\Feature;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Comment;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 
 class PerformanceTest extends TestCase
 {
-    use RefreshDatabase;
+    use DatabaseMigrations;
 
     public function test_posts_index_query_performance()
     {

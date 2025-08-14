@@ -5,12 +5,12 @@ namespace Tests\Unit;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Comment;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 
 class UserTest extends TestCase
 {
-    use DatabaseTransactions;
+    use DatabaseMigrations;
 
     public function test_user_can_have_many_posts()
     {

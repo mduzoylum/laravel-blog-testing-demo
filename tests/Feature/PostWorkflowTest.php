@@ -5,12 +5,12 @@ namespace Tests\Feature;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Comment;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 
 class PostWorkflowTest extends TestCase
 {
-    use RefreshDatabase;
+    use DatabaseMigrations;
 
     public function test_complete_blog_post_lifecycle()
     {

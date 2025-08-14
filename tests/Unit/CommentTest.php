@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class CommentTest extends TestCase
@@ -16,6 +16,7 @@ class CommentTest extends TestCase
     {
         // Arrange
         $user = User::factory()->create();
+        $user2 = User::factory()->create();
         $comment = Comment::factory()->create(['user_id' => $user->id]);
 
         // Act & Assert
