@@ -21,14 +21,12 @@ class PostPolicy
      */
     public function view(?User $user, Post $post): bool
     {
-        // Published post'lar herkese açık
-        if ($post->status === 'published') {
+                if ($post->status === 'published') {
             return true;
         }
-        
-        // Draft post'lar sadece sahibine açık
+
         if (!$user) {
-            return false; // Guest users cannot access draft posts
+            return false;
         }
         
         return $user->id === $post->user_id;
@@ -39,7 +37,7 @@ class PostPolicy
      */
     public function create(User $user): bool
     {
-        return true; // Authenticated user'lar post oluşturabilir
+        return true;
     }
 
     /**

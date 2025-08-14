@@ -45,7 +45,7 @@ class PostController extends Controller
      */
     public function store(Request $request): JsonResponse
     {
-        // Check if user is authenticated
+
         if (!auth()->check()) {
             return response()->json(['message' => 'Unauthenticated.'], 401);
         }
