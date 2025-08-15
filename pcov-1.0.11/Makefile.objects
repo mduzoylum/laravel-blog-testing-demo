@@ -1,0 +1,9 @@
+-include pcov.dep
+pcov.lo: /Applications/XAMPP/xamppfiles/htdocs/blog-testing-demo/pcov-1.0.11/pcov.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/Applications/XAMPP/xamppfiles/htdocs/blog-testing-demo/pcov-1.0.11 $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -DZEND_ENABLE_STATIC_TSRMLS_CACHE=1 -DZEND_COMPILE_DL_EXT=1 -c /Applications/XAMPP/xamppfiles/htdocs/blog-testing-demo/pcov-1.0.11/pcov.c -o pcov.lo  -MMD -MF pcov.dep -MT pcov.lo
+$(phplibdir)/pcov.la: ./pcov.la
+	$(LIBTOOL) --mode=install cp ./pcov.la $(phplibdir)
+
+./pcov.la: $(shared_objects_pcov) $(PCOV_SHARED_DEPENDENCIES)
+	$(LIBTOOL) --mode=link $(CC) -shared $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) $(LDFLAGS)  -o $@ -export-dynamic -avoid-version -prefer-pic -module -rpath $(phplibdir) $(EXTRA_LDFLAGS) $(shared_objects_pcov) $(PCOV_SHARED_LIBADD)
+

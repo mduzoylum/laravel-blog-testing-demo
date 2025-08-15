@@ -95,8 +95,23 @@ php artisan test tests/Feature/PostApiTest.php
 
 ### Test Coverage Raporu
 ```bash
-php artisan test --coverage
+# HTML formatında coverage raporu
+php artisan test --coverage-html coverage
+
+# Text formatında coverage raporu  
+php artisan test --coverage-text
+
+# Coverage raporunu aç
+open coverage/index.html
+
+> **📊 Not:** Coverage raporları otomatik oluşturulur. Xdebug extension gerekli olabilir.
 ```
+
+## 📚 Detaylı Dokümantasyon
+
+Bu proje hakkında detaylı bilgi için:
+- **[COMPLETE_PROJECT_GUIDE.md](COMPLETE_PROJECT_GUIDE.md)** - A'dan Z'ye proje rehberi
+- **Test Coverage:** `php artisan test --coverage-html coverage` komutu ile otomatik oluşturulur
 
 ## 📊 API Endpoints
 

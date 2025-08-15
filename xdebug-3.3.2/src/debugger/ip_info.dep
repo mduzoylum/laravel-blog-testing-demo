@@ -1,0 +1,2 @@
+src/debugger/ip_info.lo: \
+  /Applications/XAMPP/xamppfiles/htdocs/blog-testing-demo/xdebug-3.3.2/src/debugger/ip_info.c

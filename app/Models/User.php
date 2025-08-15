@@ -56,4 +56,18 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
+
+    /**
+     * Get the user's full name.
+     *
+     * @return string
+     */
+    public function getFullNameAttribute(): string
+    {
+        return $this->name;
+    }
+
+    public function getDearFullNameAttribute():string{
+        return "Sayın ".$this->name;
+    }
 }

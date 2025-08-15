@@ -69,7 +69,7 @@ class PostControllerTest extends TestCase
         // Check that status is set (default is draft)
         $this->assertArrayHasKey('status', $response->json());
         $this->assertEquals('draft', $response->json('status'));
-        
+
         $this->assertDatabaseHas('posts', [
             'title' => 'My New Post',
             'user_id' => $user->id,
@@ -115,7 +115,7 @@ class PostControllerTest extends TestCase
             'title' => 'Updated Title',
             'content' => 'Updated content.',
         ]);
-        
+
         $this->assertDatabaseHas('posts', [
             'id' => $post->id,
             'title' => 'Updated Title',
@@ -197,7 +197,7 @@ class PostControllerTest extends TestCase
                 'status' => 'published',
             ],
         ]);
-        
+
         $this->assertDatabaseHas('posts', [
             'id' => $post->id,
             'status' => 'published',
@@ -245,7 +245,7 @@ class PostControllerTest extends TestCase
             'id' => $post->id,
             'title' => $post->title,
         ]);
-        
+
         $response->assertJsonStructure([
             'id',
             'title',

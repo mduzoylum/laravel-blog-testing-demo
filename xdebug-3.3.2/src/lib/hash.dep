@@ -1,0 +1,4 @@
+src/lib/hash.lo: \
+  /Applications/XAMPP/xamppfiles/htdocs/blog-testing-demo/xdebug-3.3.2/src/lib/hash.c \
+  /Applications/XAMPP/xamppfiles/htdocs/blog-testing-demo/xdebug-3.3.2/src/lib/hash.h \
+  /Applications/XAMPP/xamppfiles/htdocs/blog-testing-demo/xdebug-3.3.2/src/lib/llist.h

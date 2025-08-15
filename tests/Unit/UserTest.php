@@ -95,4 +95,26 @@ class UserTest extends TestCase
         $this->assertInstanceOf(\Illuminate\Support\Carbon::class, $user->created_at);
         $this->assertInstanceOf(\Illuminate\Support\Carbon::class, $user->updated_at);
     }
+
+    public function test_user_full_name_attribute()
+    {
+        // Arrange
+        $user = User::factory()->create(['name' => 'John Doe']);
+
+        // Act
+        $fullName = $user->full_name;
+
+        // Assert
+        $this->assertEquals('John Doe', $fullName);
+        $this->assertIsString($fullName);
+    }
+
+    public function test_get_user_fullname()
+    {
+        $user=User::factory()->create(['name'=>'Ali Veli']);
+        $fullName= $user->dear_full_name;
+
+        $this->assertEquals('Ali Veli',$fullName);
+        $this->assertIsString($fullName);
+    }
 }
