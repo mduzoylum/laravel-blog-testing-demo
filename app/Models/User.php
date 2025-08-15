@@ -66,8 +66,4 @@ class User extends Authenticatable
     {
         return $this->name;
     }
-
-    public function getDearFullNameAttribute():string{
-        return "Sayın ".$this->name;
-    }
 }

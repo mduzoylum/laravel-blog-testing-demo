@@ -16,14 +16,11 @@ class PostApiTest extends TestCase
      */
     public function test_post_creation_with_various_data($postData, $expectedStatus, $shouldExistInDb)
     {
-        // Arrange
         $user = User::factory()->create();
 
-        // Act
         $response = $this->actingAs($user)
             ->postJson('/api/posts', $postData);
 
-        // Assert
         $response->assertStatus($expectedStatus);
         
         if ($shouldExistInDb) {
@@ -81,19 +78,16 @@ class PostApiTest extends TestCase
 
     public function test_post_filtering_and_sorting()
     {
-        // Arrange
         $user1 = User::factory()->create();
         $user2 = User::factory()->create();
         
         $publishedPosts = Post::factory()->published()->count(3)->create(['user_id' => $user1->id]);
         $draftPosts = Post::factory()->draft()->count(2)->create(['user_id' => $user2->id]);
 
-        // Test 1: Get all posts
         $allResponse = $this->getJson('/api/posts');
         $allResponse->assertStatus(200);
-        $this->assertCount(3, $allResponse->json('data')); // Only published posts are returned
+        $this->assertCount(3, $allResponse->json('data'));
 
-        // Test 2: Filter by status
         $publishedResponse = $this->getJson('/api/posts?status=published');
         $publishedResponse->assertStatus(200);
         $publishedData = collect($publishedResponse->json('data'));
@@ -101,7 +95,6 @@ class PostApiTest extends TestCase
             $this->assertEquals('published', $post['status']);
         });
 
-        // Test 3: Filter by published flag
         $publishedFlagResponse = $this->getJson('/api/posts?published=1');
         $publishedFlagResponse->assertStatus(200);
         $publishedFlagData = collect($publishedFlagResponse->json('data'));
@@ -112,13 +105,10 @@ class PostApiTest extends TestCase
 
     public function test_post_pagination()
     {
-        // Arrange
         Post::factory()->published()->count(25)->create();
 
-        // Act
         $response = $this->getJson('/api/posts?page=1');
 
-        // Assert
         $response->assertStatus(200);
         $data = $response->json();
         
@@ -130,12 +120,11 @@ class PostApiTest extends TestCase
         
         $this->assertEquals(1, $data['pagination']['current_page']);
         $this->assertEquals(25, $data['pagination']['total']);
-        $this->assertCount(15, $data['data']); // Default per page is 15
+        $this->assertCount(15, $data['data']);
     }
 
     public function test_api_returns_proper_json_structure()
     {
-        // Arrange
         $post = Post::factory()->published()->create();
         $comment = $post->comments()->create([
             'content' => 'Test comment',
@@ -143,10 +132,8 @@ class PostApiTest extends TestCase
             'approved' => true
         ]);
 
-        // Act - Get single post
         $response = $this->getJson("/api/posts/{$post->id}");
 
-        // Assert
         $response->assertStatus(200);
         $response->assertJsonStructure([
             'id',
@@ -179,19 +166,15 @@ class PostApiTest extends TestCase
 
     public function test_api_handles_large_datasets()
     {
-        // Arrange
         User::factory()->count(10)->create();
         Post::factory()->count(100)->create();
 
-        // Act
         $startTime = microtime(true);
         $response = $this->getJson('/api/posts?page=1');
-        $responseTime = (microtime(true) - $startTime) * 1000; // Convert to milliseconds
+        $responseTime = (microtime(true) - $startTime) * 1000;
 
-        // Assert
         $response->assertStatus(200);
         
-        // Should return paginated results, not all 100 posts
         $this->assertLessThanOrEqual(15, count($response->json('data')));
         $this->assertArrayHasKey('pagination', $response->json());
         
